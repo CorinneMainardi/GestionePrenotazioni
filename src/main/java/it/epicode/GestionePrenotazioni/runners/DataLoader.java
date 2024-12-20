@@ -12,7 +12,8 @@ import it.epicode.GestionePrenotazioni.services.PostazioneService;
 import it.epicode.GestionePrenotazioni.services.PrenotazioneService;
 import it.epicode.GestionePrenotazioni.services.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
-public class DataLoader implements CommandLineRunner {
+public class DataLoader {
 
     @Autowired
     private EdificioService edificioService;
@@ -35,9 +36,9 @@ public class DataLoader implements CommandLineRunner {
     @Autowired
     private Faker faker;
 
-    @Override
+
     @Transactional
-    public void run(String... args) throws Exception {
+    public void run(ApplicationArguments args) throws Exception {
         System.out.println("Inizio popolamento del database...");
 
         // Creazione edifici
@@ -117,4 +118,6 @@ public class DataLoader implements CommandLineRunner {
 
         System.out.println("Database popolato con successo!");
     }
+
+
 }
