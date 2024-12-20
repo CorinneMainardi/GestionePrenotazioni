@@ -132,7 +132,7 @@ public class GestionePrenotazioniApplication implements CommandLineRunner {
 		edificioService.salvaEdificio(edificio);
 		System.out.println("Edificio aggiunto con successo!");
 	}
-
+	@Transactional
 	private void visualizzaEdifici() {
 		List<Edificio> edifici = edificioService.trovaTutti();
 		edifici.forEach(System.out::println);
@@ -318,7 +318,7 @@ public class GestionePrenotazioniApplication implements CommandLineRunner {
 		prenotazioneService.creaPrenotazione(prenotazione);
 		System.out.println("Prenotazione effettuata con successo!");
 	}
-
+	@Transactional
 	private void visualizzaPrenotazioni(Scanner scanner) {
 		System.out.println("Inserisci lo username dell'utente per visualizzare le sue prenotazioni:");
 		String username = scanner.nextLine();
